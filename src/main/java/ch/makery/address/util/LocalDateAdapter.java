@@ -1,19 +1,24 @@
 package ch.makery.address.util;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
+/**
+ * Adapter (for JAXB) to convert between the LocalDate and the ISO 8601
+ * String representation of the date such as '2012-12-03'.
+ *
+ * @author Marco Jakob
+ */
 public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
     @Override
     public LocalDate unmarshal(String v) throws Exception {
-        return (v == null || v.isEmpty()) ? null : LocalDate.parse(v, FORMATTER);
+        return LocalDate.parse(v);
     }
 
     @Override
     public String marshal(LocalDate v) throws Exception {
-        return (v == null) ? null : v.format(FORMATTER);
+        return v.toString();
     }
 }
