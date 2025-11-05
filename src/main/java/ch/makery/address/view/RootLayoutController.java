@@ -98,7 +98,7 @@ public class RootLayoutController {
     }
 
     /**
-     * Opens an about dialog.
+     * Opens a "about" dialog.
      */
     @FXML
     private void handleAbout() {
@@ -116,6 +116,14 @@ public class RootLayoutController {
     @FXML
     private void handleShowBirthdayStatistics() {
         mainApp.showBirthdayStatistics();
+    }
+
+    /**
+     * Open the city statistics.
+     */
+    @FXML
+    private void handleShowCityStatistics() {
+        mainApp.showCityStatistics();
     }
 
     /**
